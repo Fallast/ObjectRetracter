@@ -1,10 +1,8 @@
+//ObjectRetracter by Brian Gonnet
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-//AreaRetraedora
-//ObjectRetracter
-//boingo boingo
 
 public class ObjectRetracter : MonoBehaviour
 {
@@ -16,6 +14,7 @@ public class ObjectRetracter : MonoBehaviour
    private float responsivnessVal;
    public float responsiv_walkingVal;
    public float responsiv_sprintingVal;
+   public float responsiv_hideSpeed;
    Vector3 origin, pos_1, pos_3, pos_6, hide;
    private bool active = true;
 
@@ -80,11 +79,11 @@ public class ObjectRetracter : MonoBehaviour
           else if(face_6.isAvailable())
              held_object.localPosition = Vector3.Lerp(held_object.localPosition, pos_6, Time.deltaTime*responsivnessVal);
           else
-             held_object.localPosition = Vector3.Lerp(held_object.localPosition, hide, Time.deltaTime*8f);
+             held_object.localPosition = Vector3.Lerp(held_object.localPosition, hide, Time.deltaTime * responsiv_hideSpeed);
        }
        else
        {
-          held_object.localPosition = Vector3.Lerp(held_object.localPosition, hide, Time.deltaTime*8f);
+          held_object.localPosition = Vector3.Lerp(held_object.localPosition, hide, Time.deltaTime * responsiv_hideSpeed);
           if(held_object.localPosition == hide)
              held_object.gameObject.SetActive(false);
        }
