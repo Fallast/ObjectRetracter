@@ -10,7 +10,3 @@ this is mainly an attempt to create a somewhat realistic feature for my game but
 
 
 https://user-images.githubusercontent.com/61057195/165780541-73892456-6dd2-4d76-8c6a-bb8968170288.mp4
-
-## Why use this?
-
-this is mainly an attempt to create a somewhat realistic feature for my game but it might help others with this problem, i find this approach to be far more convenient than using 2 cameras or high intensive CPU usage physics in order to prevent a weapon/object from clipping through walls or other obstacles.
