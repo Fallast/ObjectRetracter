@@ -21,7 +21,7 @@ public class ObjectRetracter : MonoBehaviour
    private float responsivnessVal;
    private float responsivness_hideVal;
    public float responsiv_walkingSpeed;
-   public bool Sprinting_values = true;
+   public bool Sprinting_values = false;
    public float responsiv_sprintingSpeed;
    public float responsiv_hideSpeed;
    public float responsiv_sprintinghideSpeed;
