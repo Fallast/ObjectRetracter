@@ -1,4 +1,4 @@
-//ObjectRetracter by Brian Gonnet
+//ObjectRetracter by Brian Gonnet, Argentina
 
 using System.Collections;
 using System.Collections.Generic;
@@ -7,21 +7,30 @@ using UnityEngine;
 public class ObjectRetracter : MonoBehaviour
 {
 
-   public GameObject fps;
-   FirstPersonController my_fps;
+   //the following variable is used for checking if the player is sprinting or
+   //not and thus changing the object retracting intensity.  you should change
+   //its type according to your character controller(whether it is a First
+   //Person Controller or a Third Person Controller) as long as it has a function
+   //to check if its sprinting (check getSprinting() in line 79)
+   //if your character cannot sprint simply untoggle Sprinting_values in the editor.
+   public FirstPersonController character_controller;
+
+   //faces represent the detection areas which are 6 cubes one next to each other forming a rectangle (ObjectRetracter.fbx)
    private face face_1, face_2, face_3, face_4, face_5, face_6;
    public Transform held_object;
    private float responsivnessVal;
-   public float responsiv_walkingVal;
-   public float responsiv_sprintingVal;
+   private float responsivness_hideVal;
+   public float responsiv_walkingSpeed;
+   public bool Sprinting_values = true;
+   public float responsiv_sprintingSpeed;
    public float responsiv_hideSpeed;
+   public float responsiv_sprintinghideSpeed;
    Vector3 origin, pos_1, pos_3, pos_6, hide;
    private bool active = true;
 
     void Start()
     {
        active = true;
-       my_fps = fps.GetComponent<FirstPersonController>();
        origin = pos_1 = pos_3 = pos_6 = hide = held_object.localPosition;
        pos_1[0] = .1f;
        pos_1[2] = pos_6[2] = hide[2] =  -.30f;
@@ -63,13 +72,17 @@ public class ObjectRetracter : MonoBehaviour
 
        if(active)
        {
-          if(my_fps.getSprinting())
-             responsivnessVal = responsiv_sprintingVal;
-          else
-             responsivnessVal = responsiv_walkingVal;
-          //mi caso base es quedarme en 2 osea no hacer nada
+          responsivnessVal = responsiv_walkingSpeed;
+          responsivness_hideVal = responsiv_hideSpeed;
+          if(Sprinting_values)
+          {
+             if(character_controller.getSprinting())
+                responsivnessVal = responsiv_sprintingSpeed;
+                responsivness_hideVal = responsiv_sprintinghideSpeed;
+          }
+
           if( face_1.isAvailable() && face_2.isAvailable())
-             held_object.localPosition = Vector3.Lerp(held_object.localPosition, origin, Time.deltaTime*responsivnessVal);
+             held_object.localPosition = Vector3.Lerp(held_object.localPosition, origin, Time.deltaTime*responsiv_walkingSpeed);
           else if(!face_2.isAvailable() && !face_1.isAvailable() && face_3.isAvailable() && face_6.isAvailable())
              held_object.localPosition = Vector3.Lerp(held_object.localPosition, pos_3, Time.deltaTime*responsivnessVal);
           else if(!face_2.isAvailable() && face_1.isAvailable())
@@ -79,11 +92,11 @@ public class ObjectRetracter : MonoBehaviour
           else if(face_6.isAvailable())
              held_object.localPosition = Vector3.Lerp(held_object.localPosition, pos_6, Time.deltaTime*responsivnessVal);
           else
-             held_object.localPosition = Vector3.Lerp(held_object.localPosition, hide, Time.deltaTime * responsiv_hideSpeed);
+             held_object.localPosition = Vector3.Lerp(held_object.localPosition, hide, Time.deltaTime * responsivness_hideVal);
        }
        else
        {
-          held_object.localPosition = Vector3.Lerp(held_object.localPosition, hide, Time.deltaTime * responsiv_hideSpeed);
+          held_object.localPosition = Vector3.Lerp(held_object.localPosition, hide, Time.deltaTime * responsivness_hideVal);
           if(held_object.localPosition == hide)
              held_object.gameObject.SetActive(false);
        }
