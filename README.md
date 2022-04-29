@@ -20,6 +20,8 @@ this is mainly an attempt to create a somewhat realistic feature for my game but
 
 ### showcase
 
+https://user-images.githubusercontent.com/61057195/165780541-73892456-6dd2-4d76-8c6a-bb8968170288.mp4
+
 ![123456](https://user-images.githubusercontent.com/61057195/165959520-08d3ccae-64c7-40b0-a435-ac305697519b.png)
 
 All areas are untoggled/inactive
@@ -36,4 +38,3 @@ area 1,2 and 3 are toggled, object lerps to 6
 
 area 1 and 2 are toggled, object lerps to 3-6, if area 6 is ever obstructed the object will hide 
 
-https://user-images.githubusercontent.com/61057195/165780541-73892456-6dd2-4d76-8c6a-bb8968170288.mp4
