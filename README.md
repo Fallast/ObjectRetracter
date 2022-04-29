@@ -1,8 +1,8 @@
-[Description](#objectretracter)
+- [Description](#objectretracter)
 
-[Why use this?](#why-use-this)
+- [Why use this?](#why-use-this)
 
-[showcase](#showcase)
+- [showcase](#showcase)
 
 # ObjectRetracter
 
@@ -10,7 +10,7 @@ ObjectRetracter is a script for Object/Weapon colission detection currently usin
 
 ![2022-04-28_11-57](https://user-images.githubusercontent.com/61057195/165789778-a324b6ed-c16d-49d6-af48-4573a84d4077.png)
 
-## Why-use-this?
+## Why use this?
 
 this is mainly an attempt to create a somewhat realistic feature for my game but it might help others with this problem, i find this approach to be far more convenient than using 2 cameras or high intensive CPU usage physics in order to prevent a weapon/object from clipping through walls or other obstacles.
 
