@@ -16,7 +16,7 @@ so far the object defaults to area 2, depending on which areas are triggered/act
 
 ## Why use this?
 
-this is mainly an attempt to create a somewhat realistic feature for my game but it might help others with this problem, i find this approach to be far more convenient than using 2 cameras or high intensive CPU usage physics in order to prevent a weapon/object from clipping through walls or other obstacles.
+this is mainly an attempt to create a somewhat realistic feature for my game but it might help others with this problem, i find this approach to be far more convenient than using 2 cameras (**at the cost of not having real time lighting cast over your object**) or high intensive CPU usage physics or shaders in order to prevent a weapon/object from clipping through walls or other obstacles.
 
 ### showcase
 
