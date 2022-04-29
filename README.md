@@ -6,7 +6,11 @@
 
 # ObjectRetracter
 
-ObjectRetracter is a script for Object/Weapon colission detection currently using a 3d mesh made up of 6 adjacent cubes that represent areas of colission, depending on which areas are triggered/active the object/weapon will move/lerp to a non active area.
+ObjectRetracter is a script for Object/Weapon colission detection currently using a 3d mesh made up of 6 adjacent cubes that represent areas of colission,
+so far the object defaults to area 2, depending on which areas are triggered/active the object/weapon will move/lerp to a non-active/free area. 
+
+![image](https://user-images.githubusercontent.com/61057195/165966533-3c80cceb-db21-41ef-b600-ba6b0436f6b2.png)
+
 
 ![2022-04-28_11-57](https://user-images.githubusercontent.com/61057195/165789778-a324b6ed-c16d-49d6-af48-4573a84d4077.png)
 
