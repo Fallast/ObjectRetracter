@@ -11,7 +11,7 @@ public class ObjectRetracter : MonoBehaviour
    //not and thus changing the object retracting intensity.  you should change
    //its type according to your character controller(whether it is a First
    //Person Controller or a Third Person Controller) as long as it has a function
-   //to check if its sprinting (check getSprinting() in line 79)
+   //that checks if its sprinting (check getSprinting() in line 79)
    //if your character cannot sprint simply untoggle Sprinting_values in the editor.
    public FirstPersonController character_controller;
 
@@ -27,6 +27,7 @@ public class ObjectRetracter : MonoBehaviour
    public float responsiv_sprintinghideSpeed;
    Vector3 origin, pos_1, pos_3, pos_6, hide;
    private bool active = true;
+   public Camera camvel;
 
     void Start()
     {
@@ -62,6 +63,8 @@ public class ObjectRetracter : MonoBehaviour
 
     void Update()
     {
+       print(camvel.velocity);
+       //this won't work since i need the overall motion speed and .velocity only gives me position speed over time, i need rotation
        if(Input.GetKeyDown(KeyCode.F) && !active)
        {
           active = true;
